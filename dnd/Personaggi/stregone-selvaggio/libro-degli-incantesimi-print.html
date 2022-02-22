@@ -1,0 +1,544 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap' rel='stylesheet' type='text/css' /><link href='https://necolas.github.io/normalize.css/8.0.1/normalize.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+
+/** - Breaks - **/
+hr {
+  column-span: all;
+  margin: 5rem auto;
+  /* D&D style arrow */
+  width: 0; 
+  height: 0; 
+  border-top: 0.25rem solid transparent;
+  border-bottom: 0.25rem solid transparent;
+  border-left: 15cm solid var(--red);
+  border-right: none;
+}
+/** - Headings - **/
+h1, h2, h3, h4, h5, h6, 
+.cm-header {
+  break-after: avoid-column;
+
+  margin: 0;
+  margin-block-start: 0.8em;
+  margin-block-end: 0.2em;
+
+  color: var(--red);
+}
+h1, h2, h3, h4, 
+.cm-header1, .cm-header2, .cm-header3, .cm-header4 {
+  font-family: "Crimson Text", serif;
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+h1, 
+.cm-header1 {
+  font-size: 3rem;
+}
+
+h2, 
+.cm-header2 {
+  font-size: 2rem;
+}
+
+h3, 
+.cm-header3 {
+  font-size: 1.5rem;
+}
+
+h4, 
+.cm-header4 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--yellow);
+}
+
+h5, 
+.cm-header5 {
+  font-size: 1.2rem;
+}
+
+h6, 
+.cm-header6 {
+  font-size: 1rem;
+}
+
+/** Font setting **/
+p {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.8em;
+  min-width: 100%;
+}
+
+/** Links **/
+a {
+  color: var(--black);
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: var(--red);
+  text-decoration-color: var(--red);
+}
+a:hover {
+  color: var(--red);
+}
+a:visited {
+  color: var(--yellow);
+}
+a:active {
+  color: var(--red);
+}
+
+/** Lists **/
+ul, ol {
+    padding-left: 1rem;
+}
+
+/** Other **/
+.md-footnote, sup.md-footnote {
+  color: var(--red);
+  background-color: rgba(0,0,0,0);
+}
+
+/** Emphasis **/
+del {
+  text-decoration-color: var(--red);
+}
+u {
+  
+}
+mark {
+  background-color: var(--green);
+}
+::spelling-error {
+  color: var(--red);
+}
+/** Blocks **/
+blockquote {
+  break-inside: avoid;
+  margin: 5mm 0;
+  padding: 4mm;
+  
+  background-color: var(--green);
+  border-top: 5px solid var(--red);
+  border-bottom: 5px solid var(--red);
+}
+blockquote > h4, blockquote > h3 {
+  margin-block-start: 0.2em;
+}
+
+/** Tables **/
+figure {
+  margin: 0;
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  text-align: center;
+  margin: 0;
+    width: 100%;
+}
+.ty-table-edit + table, .md-table-edit + table {
+	margin-top: 2rem;
+}
+.ty-table-edit, .md-table-edit {
+	margin-top: -0.5rem !important;
+}
+th {
+  color: white;
+  background-color: var(--red);
+  padding: 0.2rem 0.5rem;
+}
+td {
+  border: none;
+  background: var(--green);
+  padding: 0.5rem;
+}
+blockquote table td {
+	background: rgba(255, 255, 255, 0.5);
+}
+.CodeMirror {
+	width: 100%;
+	height: 100%;
+	background-color: var(--offwhite);
+}
+
+.CodeMirror-linenumber {
+	color: var(--red);
+}
+
+
+.CodeMirror * {
+  font-family: Nova Mono, sans-serif;
+}
+
+.CodeMirror .cm-header {
+	color: var(--red);
+}
+
+.CodeMirror .cm-yaml {
+	background-color: var(--green);
+}
+
+.CodeMirror .cm-link {
+	color: var(--red);
+}
+.CodeMirror .cm-string {
+	color: var(--yellow);
+}
+
+.CodeMirror .cm-atom {
+	background-color: var(--green);
+	color: var(--black);
+}
+
+.CodeMirror .cm-table-row > span {
+	background-color: var(--green);
+	color: var(--black);
+}
+
+.CodeMirror .cm-attribute,
+.CodeMirror .cm-tag {
+	color: var(--red);
+}
+
+.CodeMirror .cm-keyword,
+.CodeMirror .cm-builtin {
+	color: var(--red);
+	font-weight: bold;
+	font-style: italic;
+}
+
+.CodeMirror .cm-property, 
+.CodeMirror .cm-def {
+	color: var(--black);
+}
+
+.CodeMirror .cm-number {
+	color: var(--red);
+}
+
+.CodeMirror .cm-comment {
+	color: var(--grey);
+}
+@media print {
+  @page {
+    size: A5;
+    size: portrait;
+  }
+
+  body {
+	font-size: 2cm !important;
+  }
+  #write {
+    background-image: none !important;
+  }
+
+}
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+	color: var(--grey);
+}
+/** Scrollbar **/
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow);
+}
+#md-notification {
+  background: var(--green);
+}
+.md-image>.md-meta {
+  color: var(--red);
+}
+
+
+/** Modal **/
+.popover {
+	background-color: var(--green);
+	color: var(--black);
+}
+.modal-content {
+	background-color: var(--offwhite);
+	padding: 1rem;
+	border: none;
+	border-left: 10px solid var(--red);
+}
+#md-searchpanel input, input {
+	background-color: var(--green);	
+	border: none;
+	padding: 5px 10px;
+}
+.dropdown-menu, .context-menu {
+	background-color: var(--green);
+	border-left: 10px solid var(--red);
+}
+.dropdown-menu .active, .context-menu .active {
+	background-color: var(--red);
+	color: var(--offwhite);
+}
+.menu-style-btn.active, .context-menu.dropdown-menu > .active > a {
+	background-color: rgba(0,0,0,0);
+}
+.context-menu.dropdown-menu > li > a:hover {
+	background-color: rgba(0,0,0,0);
+	color: var(--red);
+}
+.btn, .btn-danger, .searchpanel-search-option-btn {
+	background-color: var(--green);
+	border: none;
+	margin: 0.5rem;
+}
+.input-group-addon {
+	background-color: var(--offwhite);
+}
+#md-resize-grid {
+	color: var(--offwhite);
+	background-color: var(--red);
+	border: none;
+}
+
+
+/** Other **/
+#md-notification {
+	background-color: var(--offwhite);
+	border: none;
+}/** Crimson Text **/
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+/** Alegreya **/
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap");
+/** Nova Mono **/
+@import url('file:///C://Users//ivan.silva//AppData//Roaming//Typora/themes/https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
+
+
+@import url('file:///C://Users//ivan.silva//AppData//Roaming//Typora/themes/');
+/* Try locally, in case of connection fail */
+@import "";
+@import "";
+@import "";
+/* @import "torillic-print/torillic-write.css"; */
+@import "";
+@import "";
+@import "";
+
+:root {
+  --offwhite: #fff9e6;
+  --red: #58180d;
+  --green: #e0e5c1;
+  --yellow: #c9ad6a;
+  --grey: #6D6A75;
+  --black: #403333;
+
+  font-size: 3.35mm;
+  font-family: "Alegreya", sans-serif;
+  color: var(--black);
+}
+
+
+</style><title>libro-degli-incantesimi</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='libro-degli-incantesimi'><span>Libro degli incantesimi</span></h1><p><img src="images/book.png" style="zoom: 67%;" /></p><h2 id='indice'><span>Indice</span></h2><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#libro-degli-incantesimi">Libro degli incantesimi</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3"><a class="md-toc-inner" href="#indice">Indice</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#trucchetti">Trucchetti</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n6"><a class="md-toc-inner" href="#caos-mentale">Caos Mentale</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n21"><a class="md-toc-inner" href="#dardo-di-fuoco">Dardo di Fuoco</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n38"><a class="md-toc-inner" href="#mano-magica">Mano Magica</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n54"><a class="md-toc-inner" href="#prestidigitazione">Prestidigitazione</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n82"><a class="md-toc-inner" href="#raggio-di-gelo">Raggio di Gelo</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n99"><a class="md-toc-inner" href="#1°-livello">1° Livello</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n102"><a class="md-toc-inner" href="#dardo-di-caos">Dardo di Caos</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n135"><a class="md-toc-inner" href="#scudo">Scudo</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n151"><a class="md-toc-inner" href="#spruzzo-colorato">Spruzzo Colorato</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n168"><a class="md-toc-inner" href="#template">Template</a></span></p></div><h2 id='trucchetti'><span>Trucchetti</span></h2><h3 id='caos-mentale'><span>Caos Mentale</span></h3><p><em><span>Trucchetto di ammaliamento</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 azione</span></td><td><span>18 metri</span></td><td><span>V</span></td><td><span>1 round</span></td></tr></tbody></table></figure><p><span>Inietti un picco di energia caotica nella mente di una creatura entro gittata. Il bersaglio deve effettuare un tiro salvezza su Intelligenza o ricevere 1d6 danni psichici e rimuovere 1d4 dal prossimo tiro salvezza effettuato prima della fine del tuo prossimo turno.</span></p><p><strong><span>Ai Livelli Superiori</span></strong><span>. I danni di questo incantesimo aumentano di 1d6 quando raggiungi i seguenti livelli: 5° livello (2d6), 11° livello (3d6), e 17° livello (4d6). </span></p><h3 id='dardo-di-fuoco'><span>Dardo di Fuoco</span></h3><p><em><span>Trucchetto di Invocazione</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 azione</span></td><td><span>36 metri</span></td><td><span>V, S</span></td><td><span>Istantanea</span></td></tr></tbody></table></figure><p><span>L&#39;incantatore scaglia una scintilla di fuoco verso una creatura o un  oggetto situato entro gittata, effettuando un attacco a distanza con  questo incantesimo contro il bersaglio.</span></p><p><span>Se colpisce, il bersaglio subisce 1d10 danni da fuoco.</span></p><p><span>Un oggetto infiammabile colpito da questo incantesimo si incendia se non è indossato o trasportato.</span></p><p><strong><span>Ai Livelli Superiori</span></strong><span>. I danni di questo incantesimo aumentano di 1d10 quando  l&#39;incantatore arriva al 5° livello (2d10), 11° livello (3d10) e 17°  livello (4d10).</span></p><h3 id='mano-magica'><span>Mano Magica</span></h3><p><em><span>Trucchetto di Evocazione</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 azione</span></td><td><span>9 metri</span></td><td><span>V,S</span></td><td><span>1 minuto</span></td></tr></tbody></table></figure><p><span>Una mano spettrale e fluttuante appare nel punto scelto all&#39;interno  del raggio. La mano dura per la durata o fino a quando non la scartate  come azione. La mano svanisce se è mai più di 9 metri di distanza da te o se lanci di nuovo questo incantesimo.</span></p><p><span>Puoi usare la tua azione per controllare la mano. Puoi usare la  mano per manipolare un oggetto, aprire una porta o un contenitore  sbloccato, riporre o recuperare un oggetto da un contenitore aperto o  versare il contenuto da una fiala. Puoi muovere la mano fino a 9 metri  ogni volta che la usi.</span></p><p><span>La mano non può attaccare, attivare oggetti magici o trasportare più di 5 chili.</span></p><h3 id='prestidigitazione'><span>Prestidigitazione</span></h3><p><em><span>Trucchetto di Trasmutazione</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 azione</span></td><td><span>3 metri</span></td><td><span>V,S</span></td><td><span>Fino a 1 ora</span></td></tr></tbody></table></figure><p><span>Questo incantesimo è un trucco magico che gli incantatori novizi  usano per fare pratica. L&#39;incantatore crea uno degli effetti magici  seguenti entro gittata:</span></p><ul><li><span>Crea un effetto sensoriale innocuo e istantaneo, come una  pioggia di scintille, una folata di vento, una tenue melodia musicale o  uno strano odore.</span></li><li><span>Accende o spegne istantaneamente una candela, una torcia o un piccolo fuoco da campo.</span></li><li><span>Pulisce o sporca istantaneamente un oggetto non più grande di un cubo con spigolo di 30 cm.</span></li><li><span>Riscalda, raffredda o condisce materiale non vivente del volume massimo di un cubo di spigolo di 30 cm per 1 ora.</span></li><li><span>Fa comparire un colore, un piccolo segno o un simbolo su un oggetto o una superficie per 1 ora.</span></li><li><span>Crea un ninnolo non magico o un&#39;immagine illusoria che può stare nella sua mano e che permane fino alla fine del suo turno.</span></li></ul><p><span>Se l&#39;incantatore lancia questo incantesimo più volte può tenere  attivi fino a tre dei suoi effetti non istantanei contemporaneamente, e  può congedare ognuno di questi effetti con un&#39;azione.</span></p><h3 id='raggio-di-gelo'><span>Raggio di Gelo</span></h3><p><em><span>Trucchetto di Invocazione</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 azione</span></td><td><span>18 metri</span></td><td><span>V,S</span></td><td><span>Istantanea</span></td></tr></tbody></table></figure><p><span>Un raggio gelido di luce azzurra e biancastra sfreccia verso una creatura entro gittata.</span></p><p><span>L&#39;incantatore effettua un attacco a distanza con questo incantesimo contro il bersaglio.</span></p><p><span>Se lo colpisce, il bersaglio subisce 1d8 danni da freddo e la sua velocità è ridotta di 3 metri fino all&#39;inizio del turno successivo  dell&#39;incantatore.</span></p><p><strong><span>Ai Livelli Superiori</span></strong><span>. I danni di questo incantesimo aumentano di 1d8 quando  l&#39;incantatore arriva al 5° livello (2d8), 11° livello (3d8) e 17°  livello (4d8).</span></p><h2 id='1°-livello'><span>1° Livello</span></h2><blockquote><p><span>⚠ Aggiungere un&#39;incantesimo qui</span></p></blockquote><h3 id='dardo-di-caos'><span>Dardo di Caos</span></h3><p><em><span>Invocazione di 1° livello</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 azione</span></td><td><span>36 metri</span></td><td><span>V,S</span></td><td><span>Istantanea</span></td></tr></tbody></table></figure><p><span>L&#39;incantatore scaglia una massa tremolante e gorgogliante di energia  caotica contro una creatura entro gittata, effettuando un attacco con  incantesimo a distanza contro il bersaglio. Se lo colpisce, il bersaglio subisce 2d8 + 1d6 danni. L&#39; incantatore sceglie uno dei d8. Il  risultato ottenuto col tiro di quel dado determina il tipo di danno  dell&#39;attacco, come indicato di seguito.</span></p><ol start='' ><li><span>Acido</span></li><li><span>Forza</span></li><li><span>Freddo</span></li><li><span>Fulmine</span></li><li><span>Fuoco</span></li><li><span>Psichico</span></li><li><span>Tuono</span></li><li><span>Veleno </span></li></ol><p><span>Se l&#39;incantatore ottiene lo stesso risultato con entrambi i d8,  l&#39;energia caotica balza dal bersaglio a una creatura diversa a scelta  dell&#39;incantatore situata entro 9 metri da esso. L&#39;incantatore effettua  un nuovo tiro per colpire contro il nuovo bersaglio e un nuovo tiro per i danni, che potrebbe far balzare di nuovo l&#39;energia caotica. Una  creatura può essere bersagliata soltanto una volta da ogni lancio di  questo incantesimo.</span></p><p><strong><span>Ai Livelli Superiori</span></strong><span>. Quando l&#39;incantatore lancia questo  incantesimo usando uno slot incantesimo di 2° livello o superiore, ogni bersaglio subisce 1d6 danni extra del tipo ottenuto con il tiro per  ogni slot di livello superiore al 1°.</span></p><h3 id='scudo'><span>Scudo</span></h3><p><em><span>Abiurazione di 1° livello</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 reazione</span><span>*</span></td><td><span>Incantatore</span></td><td><span>V, S</span></td><td><span>1 round</span></td></tr></tbody></table></figure><p><span>Una barriera di forza magica invisibile si materializza e protegge l&#39;incantatore.</span></p><p><span>Fino all&#39;inizio del proprio turno successivo, l&#39;incantatore ottiene un bonus +5 alla CA da applicare anche all&#39;attacco innescante e non subisce danni dall&#39;incantesimo </span><em><span>Dardo Incantato</span></em><span>. </span></p><p><span>*</span><span> che l&#39;incantatore effettua quando è colpito da un attacco o bersagliato dall&#39;incantesimo </span><em><span>Dardo Incantato</span></em><span>.</span></p><h3 id='spruzzo-colorato'><span>Spruzzo Colorato</span></h3><p><em><span>Illusione di 1° livello</span></em></p><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td><span>1 azione</span></td><td><span>Incantatore (cono di 4,5m)</span></td><td><span>V, S, M (un pizzico di sabbia o di polvere colorata di rosso, giallo e blu)</span></td><td><span>1 round</span></td></tr></tbody></table></figure><p><span>Dalla mano dell&#39;incantatore si sprigiona un lampo abbagliante di luce multicolore. L&#39;incantatore tira 6d10; il totale indica l&#39;ammontare di  creature in punti ferita che questo incantesimo può influenzare. Le  creature situate entro un cono di 4,5 metri che ha origine  dall&#39;incantatore sono influenzate in ordine crescente basato sui loro  punti ferita attuali (ignorando le creature prive di sensi e quelle che  non sono in grado di vedere).</span></p><p><span>A partire dalla creatura che possiede meno punti ferita attuali,  ogni creatura influenzata da questo incantesimo è accecata finché  l&#39;incantesimo non termina. Si sottraggono i punti ferita di ogni  creatura dal totale prima di passare alla creatura con l&#39;ammontare  immediatamente superiore di punti ferita. I punti ferita di una creatura devono essere pari o inferiori al totale rimanente affinché quella  creatura possa essere influenzata.</span></p><p><strong><span>Ai Livelli Superiori.</span></strong><span> Quando l&#39;incantatore lancia questo  incantesimo usando uno slot incantesimo di 2° livello o superiore, tira  2d10 aggiuntivi per ogni slot di livello superiore al 1°.</span></p><h2 id='template'><span>Template</span></h2><figure><table><thead><tr><th><span>Tempo di lancio</span></th><th><span>Gittata</span></th><th><span>Componenti</span></th><th><span>Durata</span></th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure></div></div>
+</body>
+</html>

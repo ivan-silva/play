@@ -1,5 +1,7 @@
 # Libro degli incantesimi
 
+<img src="images/book.png" style="zoom: 67%;" />
+
 ## Indice
 
 [toc]
@@ -50,7 +52,7 @@ La mano non può attaccare, attivare oggetti magici o trasportare più di 5 chil
 
 ### Prestidigitazione
 
-**Trucchetto di Trasmutazione*
+*Trucchetto di Trasmutazione*
 
 | Tempo di lancio | Gittata | Componenti | Durata       |
 | --------------- | ------- | ---------- | ------------ |
